@@ -1,0 +1,24 @@
+The solution involves using more specific selectors to target the intended element precisely.  Avoid relying solely on the sibling combinator with pseudo-elements when the context might introduce unexpected side effects.
+
+```css
+div {
+  background-color: lightblue;
+}
+
+div + p {
+  color: green;
+}
+
+div + p::before {
+  content: "Sibling:";
+  color: blue;
+  display: inline;
+}
+
+/*Other <p> elements remain unaffected*/
+p {
+  color: green;
+}
+```
+
+This revised CSS ensures that only the paragraph immediately following the `div` receives the `::before` pseudo-element and its corresponding styling.  The addition of `display: inline;` on the pseudo-element improves its behavior. We also added a separate rule for the `p` element ensuring other paragraphs are unaffected.
