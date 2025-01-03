@@ -1,0 +1,18 @@
+The following CSS code snippet demonstrates an uncommon issue where using a pseudo-element with a sibling combinator unexpectedly affects the styling of other elements.
+
+```css
+div {
+  background-color: lightblue;
+}
+
+div + p::before {
+  content: "Sibling:";
+  color: blue;
+}
+
+p {
+  color: green;
+}
+```
+
+The intention is that only the `p` element immediately following the `div` will have the `::before` pseudo-element. However, due to the way the sibling combinator interacts with pseudo-elements, other `p` elements might also be affected, potentially leading to unexpected styling.
